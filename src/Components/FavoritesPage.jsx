@@ -5,9 +5,18 @@ const FavoritesPage = (props) => {
 
     const favoritesList = moviesList.filter((item) => item.favorite ? item : null)
 
-    console.log(favoritesList, 'lista de favoritos')
-
-    const displayFavorites = favoritesList.map((item) => <MovieItem id={item.id} key={item.id} image={item.image} title={item.title} description={item.description}/>) 
+    const DisplayFavorites = () => {
+        
+        return favoritesList.map((item) => (
+          <MovieItem
+            id={item.id}
+            key={item.id}
+            image={item.image}
+            title={item.title}
+            description={item.description}
+          />
+        ));
+    };
 
     return(
         <div className="favorites-container">
@@ -16,7 +25,7 @@ const FavoritesPage = (props) => {
             </h2>
             {favoritesList.length > 0 ? (
                 <div className="movies-grid">
-                    {displayFavorites}
+                    <DisplayFavorites />
                 </div>
             ) : (
                 <div className='fail-favorite'>Sorry but it seems that you don't have favorite movies.</div>
