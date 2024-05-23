@@ -24,7 +24,7 @@ const LoginPage = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         if(inputValues.username == loginData.username && inputValues.password == loginData.password){
-            navigate(`/profile`)
+            navigate(`/`)
             setIsLogged(true)
         }else{
             setNoUserFound(prevValue => true)
